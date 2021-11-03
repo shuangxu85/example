@@ -1,0 +1,367 @@
+/* Global Style */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+body {
+  font-family: "Poppins", sans-serif;
+}
+h1 {
+  font-size: 2.6rem;
+}
+
+li,
+button,
+label,
+input,
+p {
+  font-size: 1.8rem;
+}
+
+h2 {
+  font-size: 4rem;
+}
+h3 {
+  font-size: 2.3rem;
+  font-weight: normal;
+}
+h4,
+h5 {
+  font-size: 2.4rem;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+button {
+  padding: 2rem 6rem;
+  background: #4c6e97;
+  color: white;
+  border: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  transition: background 0.5s ease-in-out;
+  /* 动态方式 */
+  /* https://easings.net/ */
+  /* animation: cloudAnimation 2s infinite alternate 3s; */
+  /* 执行下面的 keyframse cloudAnimation 2秒的运行时间 无限循环 back and forth 3秒的delay*/
+  /* forwards ~ 最后停在最后的效果上面 */
+  /* animation-iteration-count: 3; */
+  /* 动画循环的次数 */
+}
+
+button:hover {
+  /* 按钮的动态后效果 */
+  background: #27394e;
+}
+
+/* Nav Section with HERO */
+.main-head {
+  background: #131c27;
+  color: white;
+  position: sticky;
+  top: 0px;
+  /* 上面两行使导航栏一直处于顶端 */
+  z-index: 3;
+}
+
+nav {
+  min-height: 10vh;
+  display: flex;
+  width: 90%;
+  margin: auto;
+  padding: 2rem;
+  min-height: 10vh;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+nav ul {
+  display: flex;
+  flex: 1 1 40rem;
+  justify-content: space-around;
+  align-items: center;
+  list-style: none;
+}
+#logo {
+  flex: 1 1 40rem;
+  font-family: "Pattaya", sans-serif;
+  font-weight: 400;
+}
+
+.hero {
+  min-height: 90vh;
+  background-image: linear-gradient(rgb(0, 0, 0, 0.5), transparent),
+    url("./img/landing-page.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.hero h3 {
+  padding: 4rem;
+}
+
+/*LOCATIONS SECTION*/
+#locations {
+  min-height: 100vh;
+  background: linear-gradient(rgb(0, 0, 0, 0.5), transparent),
+    url("./img/new-york-page.png");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  position: relative; /*这样云彩图片不会跑到第一页上面去, section和section的位置成为相对的*/
+  overflow: hidden;
+  /* 避免云彩移出当前section */
+}
+
+.locations-head {
+  width: 90%;
+  margin: auto;
+}
+
+.locations-head h2 {
+  padding: 1rem 0rem;
+  text-decoration: underline;
+  text-decoration-thickness: 0.5rem;
+}
+
+.locations-head h3 {
+  padding: 3rem 0rem;
+  background: linear-gradient(#131c27, #663b34);
+  -webkit-background-clip: text;
+  /* 将文字作为背景 */
+  -webkit-text-fill-color: transparent;
+  /* 将文字自身的颜色调整为透明，就可以显示上面输入的背景颜色了 */
+}
+
+.cloud {
+  position: absolute; /* 这样就不会把文字推上去了*/
+  top: 0%; /* 将图片置于最上边*/
+  right: 0%; /* 将图片置于最右边*/
+}
+
+.moving-cloud-1 {
+  animation: cloudAnimation 3s infinite alternate ease-in-out;
+}
+.moving-cloud-2 {
+  top: 20%;
+  /* 向下移动20% */
+  z-index: -1;
+  /* 将第二张图片置于第一张图片下面 */
+  opacity: 0.5;
+  /* animation: cloudAnimation 3s infinite alternate ease-in-out;   */
+}
+
+@keyframes cloudAnimation {
+  /* 0% {
+    background: lightblue;
+  }
+  25% {
+    background: rgb(35, 98, 119);
+  }
+  100% {
+    background: rgb(99, 35, 119);
+  } */
+  from {
+    transform: translate(10%, -10%);
+    /* 第一个 左右， 第二个 上下 */
+    /* 负负左上，正正右下，负正左下，正负右上 */
+  }
+  to {
+    transform: translate(0%, 0%);
+  }
+}
+
+/*BENEFITS SECTION*/
+
+.benefits-head {
+  background: #343c44;
+  padding: 3rem;
+  min-height: 40vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+}
+
+.benefits-head h2 {
+  margin-top: 5rem;
+}
+.benefits-head h3 {
+  padding: 1rem;
+}
+
+.cards {
+  width: 90%;
+  margin: auto;
+  display: flex;
+  min-height: 60vh;
+  align-items: center;
+  /* 没有这一行，card会延伸到页面下方 */
+  flex-wrap: warp;
+  /* to be responsive */
+}
+.card {
+  text-align: center;
+  flex: 1 1 25rem;
+  min-height: 40vh;
+  margin: 2rem 5rem;
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1), 0px 20px 20px rgba(0, 0, 0, 0.1);
+  /* 1st: x, 2nd: y, 3rd: blur, 4th: color */
+  /* x负左正右，y正下负上，也是右下为正正 */
+  /* 两个阴影重叠，更有视觉效果 */
+}
+
+.card img {
+  max-width: 15%;
+  margin: 2rem;
+}
+
+.card h4,
+.card p {
+  padding: 1rem;
+  line-height: 1.5;
+  /* 调整行间距 */
+}
+
+.card-icon {
+  background: #27394e;
+}
+
+/*CONTACT SECTION*/
+#contact {
+  min-height: 100vh;
+  background: linear-gradient(rgb(0, 0, 0, 0.5), transparent),
+    url("./img/contact-mountain.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-wrapper {
+  background: rgb(19, 28, 39, 0.8);
+  width: 60%;
+  color: white;
+  border-radius: 20px;
+}
+
+.form-head {
+  text-align: center;
+  padding: 4rem;
+}
+
+.name-form,
+.email-form {
+  padding: 3rem;
+  text-align: center;
+}
+
+.form-wrapper label {
+  margin: 0rem 3rem;
+}
+
+.form-wrapper button {
+  width: 100%;
+  padding: 2rem;
+  margin-top: 8rem;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.form-wrapper input {
+  padding: 1rem 3rem;
+}
+
+footer {
+  color: white;
+  background: rgb(19, 28, 39, 0.8);
+}
+
+.footer-wrapper {
+  display: flex;
+  padding: 2rem;
+  width: 90%;
+  margin: auto;
+  align-items: center;
+  min-height: 10vh;
+  flex-wrap: wrap;
+}
+
+footer h5 {
+  flex: 1 1 40rem;
+}
+footer ul {
+  display: flex;
+  list-style: none;
+  flex: 1 1 40rem;
+  justify-content: space-between;
+  align-items: center;
+}
+
+button:focus {
+  background: #161618;
+  /* 点击之后的效果？ */
+  outline-style: solid;
+  outline-width: 1px;
+  outline-color: white;
+}
+
+/*MEDIA QUERY*/
+@media screen and (max-width: 932px) {
+  /* 适应更小屏幕的显示 */
+  html {
+    font-size: 45%;
+  }
+  nav {
+    text-align: center;
+  }
+  #logo {
+    padding: 2rem;
+  }
+  .moving-cloud-1 {
+    z-index: -1;
+    /* 将移动的云置于文字下面 */
+  }
+  .moving-cloud-2 {
+    z-index: -2;
+  }
+  .locations-head h2 {
+    text-align: center;
+  }
+  .locations-head h3 {
+    background: rgb(19, 28, 39, 0.8);
+    -webkit-text-fill-color: white;
+    text-align: center;
+  }
+
+  .form-wrapper {
+    width: 90%;
+  }
+  footer {
+    text-align: center;
+  }
+  footer h5 {
+    padding-bottom: 3rem;
+  }
+}
+
+/* */
